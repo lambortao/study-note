@@ -1,32 +1,31 @@
 module.exports = {
   title: '桃子的笔记',
-  description: '为啥印象笔记用的好好的非要改成这个？可能是因为这个支持 markdown 语法吧',
+  description: '搜集知识点，用自己的语言表达出来',
+  dest: './dist',
+  base: '/dist/',
   themeConfig: {
     sidebar: {
-      '/basis/threemountain/': [
+      '/basis/': [
         {
-          title: '三座大山',
+          title: '⛰ 三座大山',
           collapsable: true,
           children: [
             '',
             'phototype',
             'async'
           ]
-        }
-      ],
-      '/basis/webapi/': [
-        {
+        }, {
           title: 'WebApi',
           collapsable: true,
           children: [
-            '',
+            'bom',
             'dom'
           ]
         }
       ]
     },
     nav: [
-      { text: 'JavaScript 基础', link: '/basis/threemountain/' }
+      { text: 'JavaScript 基础', link: '/basis/' }
     ]
   }
 }

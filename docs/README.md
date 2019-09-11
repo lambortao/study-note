@@ -1,5 +1,6 @@
 ---
 home: true
-actionText: 开始
-actionLink: /basis/threemountain/
+heroImage: /note.png
+actionText: 查看
+actionLink: /basis/
 ---
