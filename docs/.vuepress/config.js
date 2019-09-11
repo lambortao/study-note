@@ -2,7 +2,7 @@ module.exports = {
   title: '桃子的笔记',
   description: '搜集知识点，用自己的语言表达出来',
   dest: './dist',
-  base: '/dist/',
+  base: '/',
   themeConfig: {
     sidebar: {
       '/basis/': [
