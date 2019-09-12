@@ -3,11 +3,14 @@ module.exports = {
   description: '搜集知识点，用自己的语言表达出来',
   dest: './dist',
   base: '/',
+  head: [
+    ['link', { rel: 'icon', href: '/icon.png' }]
+  ],
   themeConfig: {
     sidebar: {
       '/basis/': [
         {
-          title: '⛰ 三座大山',
+          title: '三座大山',
           collapsable: true,
           children: [
             '',
