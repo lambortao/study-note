@@ -4,7 +4,7 @@ module.exports = {
   dest: './dist',
   base: '/',
   head: [
-    ['link', { rel: 'icon', href: '/icon.png' }]
+    ['link', { rel: 'icon', href: '/notebook.png' }]
   ],
   themeConfig: {
     sidebar: {

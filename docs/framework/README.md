@@ -1,1 +1,4 @@
+---
+lang: zh-CN
+---
 # Vue
