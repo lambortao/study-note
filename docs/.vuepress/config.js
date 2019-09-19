@@ -56,7 +56,7 @@ module.exports = {
           ]
         }
       ],
-      '/other/': ['']
+      '/other/': ['', 'upset']
     },
     nav: [
       { text: 'JavaScript 基础', link: '/basis/' },
