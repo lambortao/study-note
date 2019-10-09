@@ -26,6 +26,27 @@ module.exports = {
           ]
         }
       ],
+      '/professional/': [
+        {
+          title: 'TypeScript',
+          collapsable: true,
+          children: [
+            '/professional/ts/',
+          ]
+        }, {
+          title: 'Node 相关',
+          collapsable: true,
+          children: [
+            '/professional/node/',
+          ]
+        }, {
+          title: '库',
+          collapsable: true,
+          children: [
+            '/professional/libs/',
+          ]
+        }
+      ],
       '/framework/': [
         {
           title: 'Vue',
@@ -60,6 +81,7 @@ module.exports = {
     },
     nav: [
       { text: 'JavaScript 基础', link: '/basis/' },
+      { text: 'JavaScript 进阶', link: '/professional/' },
       { text: '前端框架', link: '/framework/' },
       { text: '项目', link: '/projects/' },
       { text: '其他', link: '/other/' }
