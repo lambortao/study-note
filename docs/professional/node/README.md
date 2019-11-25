@@ -188,3 +188,29 @@ function whenLoadModule(obj) {
   }
 }
 ```
+
+## 获取接口参数
+```js
+router.post('/api/:id/class', (ctx, next) => {
+  // 获取URL内的参数，如上面这个:ID
+  const path = ctx.param;
+  // 获取查询参数，就是问好后面那个
+  const query = ctx.request.query;
+  // 获取头部的参数，一般用来传 token
+  const headers = ctx.request.header;
+})
+
+```
+获取body中的参数，需要安装插件`koa-bodyparser`，然后需要将插件注册到koa
+```js
+// 在入口文件中
+const bodyparser = require('koa-bodyparser');
+const app = new Koa();
+app.use(bodyparser());
+
+// 在接口中
+const body = ctx.request.body;
+```
+
+## 接口异常处理
+看晕了，看到了 4-3
