@@ -66,6 +66,7 @@ app.use((ctx, next) => {
   console.log('4');
 })
 ```
+![avatar](https://camo.githubusercontent.com/d80cf3b511ef4898bcde9a464de491fa15a50d06/68747470733a2f2f7261772e6769746875622e636f6d2f66656e676d6b322f6b6f612d67756964652f6d61737465722f6f6e696f6e2e706e67)
 ::: warning
 因为在 nodejs 中大部分操作为异步操作，所以在中间件中加上 async 和 await 可以保证执行效果
 :::
@@ -122,5 +123,68 @@ app.use(async (ctx, next) => {
 ```
 async 并非没有意义，如果函数被 async 包裹的话，那么该函数返回的接口会被强行包裹成 promise。
 
+## 上下文
+在中间件中传值使用上下文 `ctx`
+```js {4}
+// 中间件 1
+app.use(async (ctx, next) => {
+  await next();
+  const r = ctx.r;
+  console.log(r);
+})
+```
+```js {5}
+// 中间件 2
+app.use(async (ctx, next) => {
+  const axios = require('axios');
+  const res = await axios.get('https://zytao.cc/');
+  ctx.r = res;
+})
+```
 
-看到第二章，第八篇
+## koa-router
+
+### router 的基础使用
+```js
+// 首先要引入 router
+const router = new Router();
+
+// 监听URL
+router.get('/classic/latest', (ctx, next) => {
+  ctx.body = {
+    key: 'test'
+  }
+})
+
+// 把中间件注册到 use 上
+app.use(router.routes());
+```
+
+### 路由可以分不同的目录进行编写。
+  - 在子目录编写路由要先引入`koa-router`
+  - 子目录别忘记导出 `module.exports = router`
+  - 不要在子目录中引入入口文件，避免循环引用
+  - 不要忘记在入口文件中注册路由
+
+### 使用 `require-directory` 来自动注册路由
+```js 
+// 引入模块
+const requireDirectory = require('require-directory');
+/**
+ * 加载路由
+ * @param module 固定模块
+ * @param { string } 需要导入的路由路径，可以直接导入所有路由的总目录
+ * @param { object } 每当函数加载到模块后，都会执行该对象，该对象有一个 visit，他可以接受一个函数。
+ */
+requireDirectory(module, './api/', {
+  visit: whenLoadModule
+})
+
+// 回调函数
+function whenLoadModule(obj) {
+  // 判断是否是路由，如果是的话就挂载到 use
+  if (obj instanceof Router) {
+    app.use(obj.routers())
+  }
+}
+```
