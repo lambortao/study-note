@@ -18,10 +18,17 @@ module.exports = {
     sidebar: {
       '/basis/': [
         {
-          title: '三座大山',
+          title: '基础',
           collapsable: true,
           children: [
             '',
+          ]
+        },
+        {
+          title: '三座大山',
+          collapsable: true,
+          children: [
+            'closure',
             'phototype',
             'async'
           ]
