@@ -32,14 +32,22 @@ module.exports = {
             'phototype',
             'async'
           ]
-        }, {
+        }, 
+        {
           title: 'WebApi',
           collapsable: true,
           children: [
             'bom',
             'dom'
           ]
-        }
+        },
+        {
+          title: 'ES6',
+          collapsable: true,
+          children: [
+            'es6',
+          ]
+        },
       ],
       '/professional/': [
         {
