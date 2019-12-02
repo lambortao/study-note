@@ -6,11 +6,137 @@ lang: zh-CN
 没有比这个更重要的东西了
 :::
 
-## 作用域和自由变量
+## 作用域和变量
 :::tip
 作用域其实就是一个变量或者函数能合法使用的范围
 :::
 <img :src="$withBase('/basis/zyy.png')">
+
+### 编译原理及变量提升
+#### 我们把 JavaScript 称之为动态语言，或者是解释类语言，其实 JavaScript 是一门编译类语言。
+JavaScript 引擎并不像其他语言能在构建的时候拥有很多的时间进行编译。而是在执行前，利用极短的时间（通常是几毫秒）去进行预编译。<br />
+因此，包括变量和函数在内的所有声明都会在任何代码被执行前首先进行预编译。
+
+#### 变量提升
+在函数内部，变量声明、函数声明、this、arguments 会在代码运行前默认前置。
+```js
+var a = 1;
+```
+- 看起来这只是一段声明代码。
+- 但是JavaScript引擎会把它拆成两部分。
+- `var a`，这段是在**编辑阶段**进行的。
+- `a = 1`，这段是在**执行阶段**进行的。
+
+例子1：
+```js
+a = 2;
+var a;
+console.log(a); // => 2
+
+// 上面这段代码的实际执行顺序如下
+
+var a; // 预编译的变量提升导致声明前置
+a = 2;
+console.log(a); // => 2
+```
+
+例子2：
+```js
+console.log(a); // => undefined
+var a = 2;
+
+// 上面这段代码的实际执行顺序如下
+
+var a; // 预编译的变量提升导致声明前置
+console.log(a); // => undefined
+a = 2;
+```
+
+例子3：**函数声明**
+```js
+foo(); // => a，函数声明会被默认前置提升！可以在函数声明之前调用，在编译的时候会前置声明。
+
+function foo() {
+  var a = 2;
+  console.log(a);
+}
+```
+
+例子4：**函数表达式**
+```js
+foo(); // => TypeError, foo is not a function
+
+var foo = function() {
+  var a = 2;
+  console.log(a);
+}
+
+/**
+ * 区别于函数声明，函数表达式只会前置声明变量 foo 
+ * 而 foo 只是声明并没有赋值为函数。
+ * foo() 这个操作就是对 undefined 进行非法的函数调用，所以会导致报错
+ * 上面实际的执行顺序如下
+*/
+
+var foo;
+
+foo(); // => TypeError, foo is not a function
+
+foo = function() {
+  var a = 2;
+  console.log(a);
+}
+```
+
+例子五：**具名的函数表达式**
+```js
+foo(); // TypeError
+bar(); // ReferenceError
+
+var foo = function bar() {
+  // do something...
+}
+
+// 实际的执行顺序如下
+
+var foo;
+
+foo(); // TypeError
+bar(); // ReferenceError
+
+var foo = function bar() {
+  // do something...
+}
+```
+
+#### 函数优先
+函数声明和变量声明都会被提升，但是函数会被首先提升，其次才是变量。
+```js
+foo(); // => 1
+
+var foo;
+
+function foo() {
+  console.log(1);
+}
+
+foo = function() {
+  console.log(2);
+}
+
+// 实际的执行顺序如下
+
+function foo() {
+  console.log(1)
+}
+
+foo(); // => 1
+var foo;
+
+foo = function() {
+  console.log(2);
+}
+```
 
 ### 作用域分为
 #### 全局作用域
@@ -89,7 +215,7 @@ console.log(fn.get('age')); // => 20
 `this` 取什么值，是在函数 **执行** 的时候确认的，而不是在定义的时候。
 <br />
 
-而 this 永远指向最后调用它的那个对象。
+而 this 永远指向 **最后调用它** 的那个对象。
 :::
 ### 作为普通函数被调用
 ```js
