@@ -103,7 +103,7 @@ module.exports = {
       '/other/': ['', 'upset']
     },
     nav: [
-      { text: 'JavaScript 基础', link: '/basis/' },
+      { text: 'web前端基础', link: '/basis/' },
       { text: 'JavaScript 进阶', link: '/professional/' },
       { text: '前端框架', link: '/framework/' },
       { text: '项目', link: '/projects/' },
