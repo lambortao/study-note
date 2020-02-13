@@ -85,6 +85,30 @@ module.exports = {
           ]
         }
       ],
+      '/server/': [
+        {
+          title: 'PHP',
+          collapsable: true
+        },
+        {
+          title: 'Java',
+          collapsable: true
+        },
+        {
+          title: 'MySql',
+          collapsable: true
+        },
+        {
+          title: 'Python',
+          collapsable: true
+        }
+      ],
+      '/tools/': [
+        {
+          title: 'Git',
+          collapsable: true
+        }
+      ],
       '/projects/': [
         {
           title: '希望小卖铺',
@@ -103,9 +127,21 @@ module.exports = {
       '/other/': ['', 'upset']
     },
     nav: [
-      { text: 'web前端基础', link: '/basis/' },
+      { text: 'web前端基础', link: '/basis/', items: [
+        { text: 'Chinese', link: '/language/chinese/', items: [
+          { text: 'Chinese', link: '/language/chinese/' },
+          { text: 'Japanese', link: '/language/japanese/' }
+        ] },
+        { text: 'Japanese', link: '/language/japanese/' }
+      ] },
       { text: 'JavaScript 进阶', link: '/professional/' },
       { text: '前端框架', link: '/framework/' },
+      {
+        text: '服务端', link: '/server/'
+      },
+      {
+        text: '开发工具', link: '/tools/'
+      },
       { text: '项目', link: '/projects/' },
       { text: '其他', link: '/other/' }
     ],
