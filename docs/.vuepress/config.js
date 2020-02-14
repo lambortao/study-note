@@ -16,139 +16,278 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: {
-      '/basis/': [
+      '/web/': [
         {
-          title: '基础',
-          collapsable: true,
+          title: '前端基础',
           children: [
-            '',
+            {
+              title: 'HTML & CSS',
+              path: 'basis/html'
+            },
+            {
+              title: '变量类型和计算',
+              path: 'basis/variable'
+            },
+            {
+              title: '三座大山',
+              children: [
+                {
+                  title: '作用域和闭包',
+                  path: 'basis/closure'
+                },
+                {
+                  title: '原型和原型链',
+                  path: 'basis/phototype'
+                },
+                {
+                  title: '异步与单线程',
+                  path: 'basis/async'
+                },
+              ]
+            },
+            {
+              title: 'web API',
+              children: [
+                {
+                  title: 'BOM',
+                  path: 'basis/bom'
+                },
+                {
+                  title: 'DOM',
+                  path: 'basis/dom'
+                }
+              ]
+            },
+            {
+              title: 'ES 6',
+              path: 'basis/es6'
+            }
           ]
         },
         {
-          title: '三座大山',
-          collapsable: true,
+          title: 'JavaScript 进阶',
           children: [
-            'closure',
-            'phototype',
-            'async'
-          ]
-        }, 
-        {
-          title: 'WebApi',
-          collapsable: true,
-          children: [
-            'bom',
-            'dom'
-          ]
-        },
-        {
-          title: 'ES6',
-          collapsable: true,
-          children: [
-            'es6',
-          ]
-        },
-      ],
-      '/professional/': [
-        {
-          title: 'TypeScript',
-          collapsable: true,
-          children: [
-            '/professional/ts/',
-          ]
-        }, {
-          title: 'Node 相关',
-          collapsable: true,
-          children: [
-            '/professional/node/',
-          ]
-        }, {
-          title: '库',
-          collapsable: true,
-          children: [
-            '/professional/libs/',
+            {
+              title: 'TypeScript',
+              path: 'advanced/ts/'
+            },
+            {
+              title: 'Vue',
+              path: 'advanced/vue/'
+            },
+            {
+              title: 'React',
+              path: 'advanced/react/'
+            },
+            {
+              title: '各种库',
+              path: 'advanced/libs/'
+            }
           ]
         }
       ],
-      '/framework/': [
-        {
-          title: 'Vue',
-          collapsable: true,
-          children: [
-            ''
-          ]
-        }, {
-          title: 'React',
-          collapsable: true,
-          children: [
-            'React'
-          ]
-        }
-      ],
-      '/server/': [
-        {
-          title: 'PHP',
-          collapsable: true
-        },
+      '/server/php/': [{
+        title: 'PHP',
+        path: 'basis',
+        children: [
+          {
+            title: '基础',
+            path: 'basis'
+          },
+          {
+            title: '面向对象',
+            path: 'oo'
+          },
+          {
+            title: '框架',
+            children: [
+              {
+                title: 'CI',
+                path: 'CI'
+              },
+              {
+                title: 'laravel',
+                path: 'laravel'
+              }
+            ]
+          }
+        ]
+      }],
+      '/server/java/': [
         {
           title: 'Java',
-          collapsable: true
-        },
+          path: '/'
+        }
+      ],
+      '/server/node/': [
         {
-          title: 'MySql',
-          collapsable: true
-        },
+          title: 'koa',
+          children: [
+            {
+              title: 'KOA',
+              path: ''
+            }
+          ]
+        }
+      ],
+      '/server/python/': [
         {
-          title: 'Python',
-          collapsable: true
+          title: 'python',
+          path: '/'
+        }
+      ],
+      '/server/mysql/': [
+        {
+          title: 'mysql',
+          path: '/'
         }
       ],
       '/tools/': [
         {
           title: 'Git',
-          collapsable: true
+          path: 'git'
         }
       ],
       '/projects/': [
         {
           title: '希望小卖铺',
-          collapsable: true,
-          children: [
-            ''
-          ]
+          collapsable: false,
+          path: 'hopesnack'
         }, {
           title: '在线刷题',
-          collapsable: true,
-          children: [
-            'testhub'
-          ]
+          collapsable: false,
+          path: 'testhub'
         }
       ],
-      '/other/': ['', 'upset']
+      '/other/': ['偏激', 'upset']
     },
     nav: [
-      { text: 'web前端基础', link: '/basis/', items: [
-        { text: 'Chinese', link: '/language/chinese/', items: [
-          { text: 'Chinese', link: '/language/chinese/' },
-          { text: 'Japanese', link: '/language/japanese/' }
-        ] },
-        { text: 'Japanese', link: '/language/japanese/' }
-      ] },
-      { text: 'JavaScript 进阶', link: '/professional/' },
-      { text: '前端框架', link: '/framework/' },
       {
-        text: '服务端', link: '/server/'
+        text: 'web前端',
+        items: [
+          {
+            text: '基础',
+            items: [
+              {
+                text: 'HTML & CSS',
+                link: '/web/basis/html'
+              },
+              {
+                text: 'JavaScript 基础',
+                link: '/web/basis/variable'
+              },
+              {
+                text: '三座大山',
+                link: '/web/basis/closure'
+              },
+              {
+                text: 'web API',
+                link: '/web/basis/bom'
+              },
+              {
+                text: 'ES6',
+                link: '/web/basis/es6'
+              }
+            ]
+          },
+          {
+            text: 'JavaScript 进阶',
+            items: [
+              {
+                text: 'TypeScript',
+                link: '/web/advanced/ts/'
+              },
+              {
+                text: 'Vue',
+                link: '/web/advanced/vue/'
+              },
+              {
+                text: 'React',
+                link: '/web/advanced/react/'
+              },
+              {
+                text: '库',
+                link: '/web/advanced/libs/'
+              },
+            ]
+          }
+        ]
       },
       {
-        text: '开发工具', link: '/tools/'
+        text: '服务端',
+        items: [
+          {
+            text: '语言',
+            items: [
+              {
+                text: 'NodeJS',
+                link: '/server/node/koa'
+              },
+              {
+                text: 'PHP',
+                link: '/server/php/basis'
+              },
+              {
+                text: 'Java',
+                link: '/server/java/'
+              },
+              {
+                text: 'Python',
+                link: '/server/python/'
+              },
+              {
+                text: 'MySql',
+                link: '/server/mysql/'
+              }
+            ]
+          },
+          {
+            text: '其他',
+            items: [
+              {
+                text: '服务器相关',
+                link: '/server/server/'
+              }
+            ]
+          }
+        ]
       },
-      { text: '项目', link: '/projects/' },
-      { text: '其他', link: '/other/' }
+      {
+        text: '开发工具',
+        items: [
+          {
+            text: 'Git',
+            link: '/tools/git'
+          }
+        ]
+      },
+      {
+        text: '项目',
+        items: [
+          {
+            text: '希望小卖铺',
+            link: '/projects/hopesnack'
+          },
+          {
+            text: '在线刷题',
+            link: '/projects/testhub'
+          }
+        ]
+      },
+      {
+        text: '其他',
+        link: '/other/偏激'
+      }
     ],
     lastUpdated: '最后更新'
   },
   plugins: ['@vuepress/pwa', {
     serviceWorker: true,
     updatePopup: true
-  }]
+  }],
+  markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'))
+    }
+  }
 }

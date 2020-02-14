@@ -2,6 +2,6 @@
 home: true
 heroImage: /note.png
 actionText: 查看
-actionLink: /basis/
+actionLink: plan
 lang: zh-CN
 ---
