@@ -1,13 +1,13 @@
 ## 前端
 ### 前端基础
-- [ ] [HTML & CSS](/web/basis/html)
-- [x] [变量类型和计算](/web/basis/variable)
-- [x] [三座大山](/web/basis/closure)
-  - [x] [作用域和闭包](/web/basis/closure)
-  - [x] [原型和原型链](/web/basis/phototype)
-  - [x] [异步与单线程](/web/basis/async)
-- [ ] [web api](/web/basis/bom)
-- [ ] [es6](/web/basis/es6)
+- [ ] [HTML & CSS](/web/basis/html.html)
+- [x] [变量类型和计算](/web/basis/variable.html)
+- [x] [三座大山](/web/basis/closure.html)
+  - [x] [作用域和闭包](/web/basis/closure.html)
+  - [x] [原型和原型链](/web/basis/phototype.html)
+  - [x] [异步与单线程](/web/basis/async.html)
+- [ ] [web api](/web/basis/bom.html)
+- [ ] [es6](/web/basis/es6.html)
 
 ### 前端进阶
 - [ ] [TypeScript](/web/advanced/ts/)
@@ -16,8 +16,8 @@
 - [ ] [库](/web/advanced/libs/)
 
 ## 服务端
-- [ ] [node](/server/node/koa)
-  - [x] [koa - 进行了一部分](/server/node/koa)
+- [ ] [node](/server/node/koa.html)
+  - [x] [koa - 进行了一部分](/server/node/koa.html)
 - [ ] [php](/server/php/)
 - [ ] [Java](/server/java/)
 - [ ] [Python](/server/python/)
