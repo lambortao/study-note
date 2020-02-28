@@ -138,7 +138,7 @@ module.exports = {
       ],
       '/server/mysql/': [
         {
-          title: 'mysql',
+          title: 'MySQL',
           path: '/'
         }
       ],
