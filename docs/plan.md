@@ -29,4 +29,4 @@
 - [ ] [服务器相关](/server/server/)
 
 ## 开发工具 
-- [ ] [Git](/tools/git)
+- [x] [Git](/tools/git.html)
