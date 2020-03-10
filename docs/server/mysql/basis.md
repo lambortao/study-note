@@ -426,3 +426,5 @@ INSERT INTO students (id, class_id, name, gender, score) VALUES (1, 1, '小明',
 INSERT IGNORE INTO students (id, class_id, name, gender, score) VALUES (1, 1, '小明', 'F', 99);
 ```
 如果没有找到 `id=1` 的数据，那么这条数据江北插入数据库，如果找到了则忽略。
+
+## MySQL 事务
