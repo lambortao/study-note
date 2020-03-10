@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # MySql
 
 ## 基本概念
@@ -283,3 +287,142 @@ ON s.class_id = c.id;
  - 在确定需要连接的表。使用 `INNER JOIN <表2>` 连接。
  - 然后确定连接条件。使用 `ON <条件...>` ，这里的条件是 `s.class_id = c.id` 意思就是说 `students` 表中的 `class_id` 字段和 `classes` 表中的 `id` 字段一样时进行连接。
  - 可选的 `WHERE` 或者 `ORDER BY` 字句。
+
+#### OUTER JOIN 外连接
+外连接又分为：`RIGHT OUTER JOIN` 和 `LEFT OUTER JOIN` 以及 `FULL OUTER JOIN`。
+<br />
+
+这三个的区别是什么？和 `INNER JOIN` 的区别又是什么？
+<br />
+
+**左边表为主表，右边表为从表**
+  - `INNER JOIN` 返回的是 **两个表共有** 的数据<br />
+  <img :src="$withBase('/server/mysql/inner.png')">
+  - `RIGHT OUTER JOIN` 返回的是两个表共有的数据加上 **从表存在但是主表不存在** 的数据。<br />
+  <img :src="$withBase('/server/mysql/right.png')">
+  - `LEFT OUTER JOIN` 返回的是两个表共有的数据加上 **主表存在但是从表不存在** 的数据。<br />
+  <img :src="$withBase('/server/mysql/left.png')">
+  - `FULL OUTER JOIN` 返回的是 **两个表都有** 的数据。<br />
+  <img :src="$withBase('/server/mysql/full.png')">
+  - 如果一个表有数据，另外一个表没数据的话，没数据的字段返回 `NULL`
+
+## 修改数据
+::: tip
+对于关系型数据，基础的操作就是增删改查，前面已经详细介绍了查，下面介绍增删改
+:::
+### 新增数据
+当我们向数据库内插入一条新的数据时，就需要使用到 `INSERT` 语句。
+
+``` sh
+# 基础语法
+INSERT INTO <表名> (字段1, 字段2, ...) VALUES (值1, 值2, ...);
+```
+
+假如我们向 `students` 表中插入一段数据。
+``` sh
+INSERT INTO `students` (class_id, name, gender, score) VALUES (2, '小明', 'boy', 80);
+```
+需要注意的是，我们在新增数据的时候并没有写 `id` 这个字段，因为 `id` 这个字段在数据库中是**自增主键**，是数据库会自动添加的。如果一个字段允许为空的话，这里也可以不出现该字段名。
+
+``` sh
+INSERT INTO `students` (class_id, name, gender, score) VALUES
+(2, '小红', 'girl', 90),
+(2, '小杨', 'girl', 70),
+(2, '小王', 'boy', 60);
+```
+同时添加多条数据。
+
+### 更新数据
+当我们需要更新数据库内的一条数据时，就需要使用 `UPDATE` 语句。
+
+``` sh
+# 基础语法
+UPDATE <表名> SET 字段1 = 值1, 字段2 = 值2, ... WHERE ...;
+```
+
+假如我们需要更新一条数据
+``` sh
+UPDATE `students` SET name='大牛', score=80 WHERE id = 2;
+```
+意思是将 `students` 这个表里面 `id = 2` 的这条数据，`name` 改成 `大牛`，`score` 改成 `80`。
+
+**还可以增大 `WHERE` 语句的范围**
+``` sh
+UPDATE `students` SET name='小牛', score=66 WHERE id>=5 AND id<8;
+```
+意思是将 `students` 这个表里面的 `id` 大于等于5，小于8的所有数据的 `name` 改成小牛，`score` 改成 `66`。
+
+**更新字段的时候也可以使用表达式**
+``` sh
+UPDATE `students` SET score=score+10 WHERE score<60;
+```
+意思是将 `students` 这个表里面 `score` 小于 `60` 的全部在原基础上加10分。
+
+**需要注意的**
+- 如果 `WHERE` 没有匹配到任何数据，那么他不会报错，也不会修改任何数据
+- `UPDATE`  语句可以没有 `WHERE` 条件。如果没有 `WHERE` 条件的话他会更新所有的数据。
+- 所以在执行 `UPDATE` 语句的时候要小心，最好先用 `SELECT` 语句来测试 `WHERE` 语句是否获取到了正确的数据，然后再决定是否更新。
+
+**`UPDATE` 语句会返回更新的行数以及 `WHERE` 匹配到的行数**
+``` sh
+mysql> UPDATE students SET name='大宝' WHERE id=1;
+-> # 输出
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+```
+
+### 删除数据
+当我们需要删除一条数据的时候，就会用到 `DELETE` 语句。
+
+``` sh
+# 基础语法
+DELETE FROM <表名> WHERE ...;
+```
+
+``` sh
+DELETE FROM `students` WHERE id=3;
+```
+在 `students` 表中删除 `id = 3` 的这条数据。
+
+**使用条件判断一次删除多条数据**
+``` sh
+DELECT FROM `students` WHERE score>=30 AND score<60;
+```
+
+**需要注意的**
+- 如果 `WHERE` 没有匹配到任何数据，那么他不会报错，也不会修改任何数据
+- 和 `UPDATE` 类似，`DELETE` 语句也可以没有 `WHERE` 字句，这样他会删除整个表。
+- 和 `UPDATE` 一样，在执行 `DELETE` 语句之前最好也用 `SELECT` 语句来验证 `WHERE` 数据的正确性。
+
+**`DELETE` 语句也会返回更新的行数以及 `WHERE` 匹配到的行数**
+``` sh
+mysql> DELETE FROM students WHERE id=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DELETE FROM students WHERE id=999;
+Query OK, 0 rows affected (0.01 sec)
+```
+
+## 实用语句
+在编写SQL时，灵活运用一些技巧，可以大大简化程序逻辑。
+
+### 插入或替换
+如果我们希望插入一条新记录 `INSERT`，但如果记录已经存在，就先删除原记录，再插入新记录。此时，可以使用 `REPLACE` 语句，这样就不必先查询，再决定是否先删除再插入：
+``` sh
+REPLACE INTO students (id, class_id, name, gender, score) VALUES (1, 1, '小明', 'F', 99);
+```
+如果没有找到 `id=1` 的数据，那么这条数据将会被插入数据库，如果找到了则会先删除 `id=1` 这条数据，然后再插入新的数据。
+
+### 插入或更新
+如果我们希望插入一条新记录 `INSERT`，但如果记录已经存在，就更新该记录，此时，可以使用 `INSERT INTO ... ON DUPLICATE KEY UPDATE ...` 语句：
+``` sh
+INSERT INTO students (id, class_id, name, gender, score) VALUES (1, 1, '小明', 'F', 99) ON DUPLICATE KEY UPDATE name='小明', gender='F', score=99;
+```
+如果没有找到 `id=1` 的数据，那么这条数据将被插入数据库，如果找到了则会更新 `UPDATE` 后面的字段及数据。
+
+### 插入或忽略
+如果我们希望插入一条新记录 `INSERT`，但如果记录已经存在，就啥事也不干直接忽略，此时，可以使用 `INSERT IGNORE INTO ...` 语句：
+``` sh
+INSERT IGNORE INTO students (id, class_id, name, gender, score) VALUES (1, 1, '小明', 'F', 99);
+```
+如果没有找到 `id=1` 的数据，那么这条数据江北插入数据库，如果找到了则忽略。

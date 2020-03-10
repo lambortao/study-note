@@ -139,7 +139,7 @@ module.exports = {
       '/server/mysql/': [
         {
           title: 'MySQL',
-          path: '/'
+          path: 'basis'
         }
       ],
       '/tools/': [
@@ -237,7 +237,7 @@ module.exports = {
               },
               {
                 text: 'MySql',
-                link: '/server/mysql/'
+                link: '/server/mysql/basis'
               }
             ]
           },
