@@ -25,7 +25,7 @@
   - [ ] [laravel](/server/php/laravel.html)
 - [ ] [Java](/server/java/)
 - [ ] [Python](/server/python/)
-- [x] [MySql](/server/mysql/basis) ✅✅✅
+- [x] [MySql](/server/mysql/basis.html) ✅✅✅
 - [ ] [服务器相关](/server/server/)
 
 ## 开发工具 
