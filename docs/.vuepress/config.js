@@ -86,33 +86,61 @@ module.exports = {
           ]
         }
       ],
-      '/server/php/': [{
-        title: 'PHP',
-        path: 'basis',
-        children: [
-          {
-            title: '基础',
-            path: 'basis'
-          },
-          {
-            title: '面向对象',
-            path: 'oo'
-          },
-          {
-            title: '框架',
-            children: [
-              {
-                title: 'CI',
-                path: 'CI'
-              },
-              {
-                title: 'laravel',
-                path: 'laravel'
-              }
-            ]
-          }
-        ]
-      }],
+      '/server/php/': [
+        {
+          title: 'PHP 语言基础',
+          children: [
+            {
+              title: '基础语法',
+              path: 'basis/basis'
+            },
+            {
+              title: '类型',
+              path: 'basis/types'
+            },
+            {
+              title: '变量',
+              path: 'basis/variables'
+            },
+            {
+              title: '常量',
+              path: 'basis/constants'
+            },
+            {
+              title: '表达式',
+              path: 'basis/expressions'
+            },
+            {
+              title: '运算符',
+              path: 'basis/operators'
+            },
+            {
+              title: '流程控制',
+              path: 'basis/structures'
+            },
+            {
+              title: '函数',
+              path: 'basis/functions'
+            },
+            {
+              title: '类与对象',
+              path: 'basis/oop5'
+            },
+            {
+              title: '命名空间',
+              path: 'basis/namespaces'
+            }
+          ]
+        },
+        {
+          title: 'CI',
+          path: 'library/CI'
+        },
+        {
+          title: 'Laravel',
+          path: 'library/laravel'
+        }
+      ],
       '/server/java/': [
         {
           title: 'Java',
@@ -225,7 +253,7 @@ module.exports = {
               },
               {
                 text: 'PHP',
-                link: '/server/php/basis'
+                link: '/server/php/basis/basis'
               },
               {
                 text: 'Java',
