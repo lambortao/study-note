@@ -18,7 +18,7 @@
 ## 服务端
 - [ ] [node](/server/node/koa.html)
   - [x] [koa](/server/node/koa.html) ✅
-- [ ] [php](/server/php/basis.html)
+- [ ] [php](/server/php/basis.html) ✅
   - [ ] [基础](/server/php/basis.html)
   - [ ] [面向对象](/server/php/oo.html)
   - [ ] [CI](/server/php/CI.html)
