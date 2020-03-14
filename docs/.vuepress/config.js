@@ -96,7 +96,36 @@ module.exports = {
             },
             {
               title: '类型',
-              path: 'basis/types'
+              children: [
+                {
+                  title: '类型基础',
+                  path: 'basis/types/home'
+                },
+                {
+                  title: 'Boolean 布尔值',
+                  path: 'basis/types/boolean'
+                },
+                {
+                  title: 'Integer 整型',
+                  path: 'basis/types/int'
+                },
+                {
+                  title: 'Float 浮点型',
+                  path: 'basis/types/float'
+                },
+                {
+                  title: 'String 字符串',
+                  path: 'basis/types/string'
+                },
+                {
+                  title: 'Array 数组',
+                  path: 'basis/types/array'
+                },
+                {
+                  title: 'Object 对象',
+                  path: 'basis/types/object'
+                }
+              ]
             },
             {
               title: '变量',
