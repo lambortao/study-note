@@ -18,11 +18,10 @@
 ## 服务端
 - [ ] [node](/server/node/koa.html)
   - [x] [koa](/server/node/koa.html) ✅
-- [ ] [php](/server/php/basis.html) ✅
-  - [ ] [基础](/server/php/basis.html)
-  - [ ] [面向对象](/server/php/oo.html)
-  - [ ] [CI](/server/php/CI.html)
-  - [ ] [laravel](/server/php/laravel.html)
+- [x] [php](/server/php/basis/basis.html) ✅
+  - [x] [语言基础](/server/php/basis/basis.html) ✅
+  - [ ] [CI](/server/php/library/CI.html)
+  - [ ] [laravel](/server/php/library/laravel.html)
 - [ ] [Java](/server/java/)
 - [ ] [Python](/server/python/)
 - [x] [MySql](/server/mysql/basis.html) ✅✅✅

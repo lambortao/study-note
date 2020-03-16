@@ -124,6 +124,10 @@ module.exports = {
                 {
                   title: 'Object 对象',
                   path: 'basis/types/object'
+                },
+                {
+                  title: 'NULL',
+                  path: 'basis/types/null'
                 }
               ]
             },
