@@ -193,7 +193,7 @@ array(1) {
 ## 实用函数
 函数名 | 简介
  - | -
- [array_change_key_case](https://www.php.net/manual/zh/function.array_change_key_case.php) | 将数组中的所有键名修改为全大写或小写
+[array_change_key_case](https://www.php.net/manual/zh/function.array_change_key_case.php) | 将数组中的所有键名修改为全大写或小写
 ​[array_chunk](https://www.php.net/manual/zh/function.array-chunk.php) | 将一个数组分割成多个
 ​[array_column](https://www.php.net/manual/zh/function.array-column.php) | 返回数组中指定的一列
 ​[array_combine](https://www.php.net/manual/zh/function.array-combine.php) | 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值
