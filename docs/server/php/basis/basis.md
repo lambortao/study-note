@@ -55,3 +55,13 @@ PHP 全称：`PHP: Hypertext Preprocessor`，翻译过来就是 `PHP: 超文本�
   */
 ?>
 ```
+
+## 快速扒页面上的代码
+``` javascript
+$('.chunklist_reference').children('li').each(function(){
+  let href = $(this).children('a').attr('href');
+  let name = $(this).children('a').text();
+  let information = $(this).text();
+  console.log(href, name, information);
+})
+```
