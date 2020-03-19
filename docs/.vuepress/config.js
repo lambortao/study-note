@@ -252,7 +252,7 @@ module.exports = {
             ]
           },
           {
-            text: 'JavaScript 进阶',
+            text: '进阶',
             items: [
               {
                 text: 'TypeScript',
@@ -320,6 +320,10 @@ module.exports = {
               {
                 text: 'Socket',
                 link: '/server/socket/'
+              },
+              {
+                text: '微信相关',
+                link: '/wechat/'
               }
             ]
           }
@@ -344,6 +348,10 @@ module.exports = {
           {
             text: '在线刷题',
             link: '/projects/testhub'
+          },
+          {
+            text: 'Alfred',
+            link: '/projects/alfred/'
           }
         ]
       },
