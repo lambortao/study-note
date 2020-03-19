@@ -16,32 +16,32 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: {
-      '/web/': [
+      '/web/basis/': [
         {
           title: '前端基础',
           children: [
             {
               title: 'HTML & CSS',
-              path: 'basis/html'
+              path: 'html'
             },
             {
               title: '变量类型和计算',
-              path: 'basis/variable'
+              path: 'variable'
             },
             {
               title: '三座大山',
               children: [
                 {
                   title: '作用域和闭包',
-                  path: 'basis/closure'
+                  path: 'closure'
                 },
                 {
                   title: '原型和原型链',
-                  path: 'basis/phototype'
+                  path: 'phototype'
                 },
                 {
                   title: '异步与单线程',
-                  path: 'basis/async'
+                  path: 'async'
                 },
               ]
             },
@@ -50,38 +50,50 @@ module.exports = {
               children: [
                 {
                   title: 'BOM',
-                  path: 'basis/bom'
+                  path: 'bom'
                 },
                 {
                   title: 'DOM',
-                  path: 'basis/dom'
+                  path: 'dom'
                 }
               ]
             },
             {
               title: 'ES 6',
-              path: 'basis/es6'
+              path: 'es6'
             }
           ]
-        },
+        }
+      ],
+      '/web/advanced/ts/': [
         {
-          title: 'JavaScript 进阶',
+          title: 'TypeScript',
           children: [
             {
-              title: 'TypeScript',
-              path: 'advanced/ts/'
-            },
+              title: '基础概念',
+              path: 'basis'
+            }
+          ]
+        }
+      ],
+      '/web/advanced/vue/': [
+        {
+          title: 'Vue',
+          children: [
             {
-              title: 'Vue',
-              path: 'advanced/vue/'
-            },
+              title: '基础概念',
+              path: 'basis'
+            }
+          ]
+        }
+      ],
+      '/web/advanced/react/': [
+        {
+          title: 'React',
+          children: [
             {
-              title: 'React',
-              path: 'advanced/react/'
-            },
-            {
-              title: '各种库',
-              path: 'advanced/libs/'
+              title: '基础概念',
+              path: 'basis'
             }
           ]
         }
@@ -256,20 +268,20 @@ module.exports = {
             items: [
               {
                 text: 'TypeScript',
-                link: '/web/advanced/ts/'
+                link: '/web/advanced/ts/basis'
               },
               {
                 text: 'Vue',
-                link: '/web/advanced/vue/'
+                link: '/web/advanced/vue/basis'
               },
               {
                 text: 'React',
-                link: '/web/advanced/react/'
+                link: '/web/advanced/react/basis'
               },
-              {
-                text: '库',
-                link: '/web/advanced/libs/'
-              },
+              // {
+              //   text: '库',
+              //   link: '/web/advanced/libs/'
+              // },
             ]
           }
         ]
