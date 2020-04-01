@@ -94,6 +94,10 @@ module.exports = {
             {
               title: '基础概念',
               path: 'basis'
+            },
+            {
+              title: '生命周期',
+              path: 'lifecycle'
             }
           ]
         },
