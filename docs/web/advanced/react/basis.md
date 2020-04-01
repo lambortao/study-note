@@ -1,5 +1,86 @@
 # React 基础
 
+## 基础的使用
+一般情况下，`React` 的代码都是在一个类里面，但是也可以由一个单独的函数输出。
+
+基础的事件绑定就不写了。
+
+### 语法糖
+
+#### Fargment
+`React` 要求 `DOM` 根层级只能有一层，但是如果满足排版需求的话可以使用 `Fargment` 语法糖。
+``` javascript
+import React, { Fargment } from 'react';
+
+function todoList() {
+  return (
+    <Fargment>
+      <input type="text" />
+      <button>提交</button>
+    </Fargment>
+  )
+}
+```
+#### className
+因为 `class` 是 `JavaScript` 的关键字，所以在 `JSX` 中的类名不允许使用 `class` ，而是使用 `className` 来代替。
+
+#### for
+因为 `for` 是 `JavaScript` 的关键字，所以在 `JSX` 中的类名不允许使用 `for` ，而是使用 `htmlFor` 来代替。
+
+### JSX
+在 `JSX` 中可以使用 `javascript` 表达式，但是需要使用 `{}` 圈起来。
+``` javascript {3}
+function todoList() {
+  return (
+    <p>{ isTrue ? '正确' : '错误' }</p>
+  )
+}
+```
+
+通常情况下，`JSX` 会将用户输入的 `html` 编译成字符串，这样做会更安全，可以防止 `XSS` 攻击。但是如果一定要把传入的变量进行编译的话可以使用 `dangerouslySetInnerHTML`。
+``` javascript
+function creactDOM() {
+  return <div dangerouslySetInnerHTML={{ __html: '<h2>这是一个副标题</h2>' }}></div>
+}
+```
+
+### this
+区别于 `Vue`，`React` 的事件需要自己手动去绑定。
+
+`this` 是在执行的时候才能决定指向的，所以在 `inputChangeFunc` 函数执行的时候 `this` 并没有指向 `todoList` 这个构造函数，因此在 `onChange` 的时候就使用 `bind` 将其的 `this` 绑定一下。
+``` javascript {15}
+class todoList {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        <input 
+          type="text" 
+          value={this.state.inputValue} 
+          onChange={this.inputChangeFunc.bind(this, e)}
+        />
+      </div>
+    )
+  }
+
+  inputChangeFunc(e) {
+    this.setState(() => {
+      const inputValue = e.target.value;
+      return { inputValue }
+    })
+  }
+}
+```
+
+### state
+
+
 笔记的关键字
 - react 的事件绑定基础概念
 - Fargment 的使用

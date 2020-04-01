@@ -96,6 +96,15 @@ module.exports = {
               path: 'basis'
             }
           ]
+        },
+        {
+          title: 'Redux',
+          children: [
+            {
+              title: '基础概念',
+              path: 'redux/basis'
+            }
+          ]
         }
       ],
       '/server/php/': [
