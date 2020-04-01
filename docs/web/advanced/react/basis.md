@@ -194,3 +194,35 @@ inputValueFunc(e) {
 - 单向数据流，父组件可以向子组件传递数据，但是子组件不能修改父组件的数据
 - react 只是一个视图层的框架，大型项目还是需要搭配其他的一些插件
 - 函数式编程可以更方便的自动化测试
+
+虚拟DOM的理解和diff算法的基础
+
+propTypes 和 defaultProps 的使用
+
+ref 的使用
+
+生命周期
+- 声明周期是指在某一个时刻会自动调用执行的函数
+
+初始加载
+Initialization
+- setup
+- state
+- props
+
+Mounting
+- ComponentWillMount
+- render
+- ComponentDidMount
+
+组件更新
+Updation
+- componentWillReceiveProps
+- shouldComponentUpdate
+- componentWillUpdate
+- componentDidUpdate
+
+组件卸载
+- componentWillUnmount
+
+react 的性能优化
