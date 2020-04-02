@@ -11,6 +11,15 @@
 
 如果使用 `Redux` 的以后， `Redux` 提供了一个公共的 `Store` 来存储所有的公共数据。这时候如果有一个组件修改了数据，那么他会将数据更新到 `Store` ，而其他组件会自动感知到数据的修改，然后从 `Store` 拉取最新的数据。这样的话，不管层级有多深，逻辑都会变得简单明了。
 
+## 三大原则
+::: tip Redux 三大原则
+1、`store` 必须是唯一的 <br />
+2、只有 `store` 可以改变 `store` 的内容 <br />
+3、`Reducers` 必须是纯函数。
+:::
+
+**什么是纯函数？**<br />
+纯函数就是指只要给定固定输入，就一定会有固定输出，且没有副作用的函数。纯函数不会有异步操作和获取时间的操作。`reducer` 中也不允许直接修改 `store` 的内容，只可以返回给 `store` 内容。
 ## 工作流程
 首先来看一张图
 <img :src="$withBase('/react/redux/redux-flow.png')">
@@ -121,7 +130,9 @@ class AntdTodo extends React.Component {
 }
 ```
 
-## 抽离 actionTypes
+## 抽离 
+
+### actionTypes
 从上面的例子我们看到，组件内 `action` 的 `type` 和 `reducers` 中的 `action` 的 `type` 的名字必须要完全吻合，否则 `reducers` 就没有办法知道你需要更新哪一个 `state`。
 
 那这样就会碰到一个问题，因为这里的 `type` 都是使用字符串来定义的，而字符串一旦拼错，在代码中是不会报错的。这样可能会无意识间增加编码成本。
@@ -136,7 +147,7 @@ export const CHANGE_INPUT_VALUE = 'change_input_value';
 
 使用一个常量来定义它，并将它分别引入组件和 `reducers` 内部。
 
-## 抽离 actionCretor
+### actionCretor
 在上面那个例子中，我们将 `action` 直接定义在了组件中，如果实际业务就像这个例子一样就还好，但是一旦业务复杂起来，这样做将会变得很难维护。这时候就需要将所有的 `action` 抽离出来到一个公共的文件。
 
 ``` javascript
@@ -151,3 +162,16 @@ export const getInputChangeValueFunc = (value) => ({
 这个函数直接返回一个 `action` 对象，他接受一个参数，就是需要修改的 `action` 的值。而组件只需要直接引入该函数，然后将值传进来就好了。
 
 这样的代码相对于上例中的代码，可维护性要提高很多。
+
+## 核心 API 归纳
+### createStore
+`createStore` 可以帮助我们创建一个 `store`，该函数一般是在 `store.js` 内定义使用。
+
+### store.dispatch
+`store.dispatch` 是 `store` 的方法，它用来派发 `action` 给 `store`，这个方法一般是在组件内使用。
+
+### store.getState
+`store.getState` 用来获取 `store` 中的所有内容。这个方法一般是在组件内 `constructor` 中直接赋值给 `this.state`。
+
+### store.subscribe
+`store.subscribe` 用来订阅监听 `store` 的变化，这个方法接受一个函数，一旦 `store` 发生变化，该方法就会执行接受的函数以响应数据。
