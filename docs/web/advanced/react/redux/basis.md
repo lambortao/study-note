@@ -135,3 +135,19 @@ export const CHANGE_INPUT_VALUE = 'change_input_value';
 ```
 
 使用一个常量来定义它，并将它分别引入组件和 `reducers` 内部。
+
+## 抽离 actionCretor
+在上面那个例子中，我们将 `action` 直接定义在了组件中，如果实际业务就像这个例子一样就还好，但是一旦业务复杂起来，这样做将会变得很难维护。这时候就需要将所有的 `action` 抽离出来到一个公共的文件。
+
+``` javascript
+// redux/actionCreator.js
+import { CHANGE_INPUT_VALUE } from './actionTypes.js'
+
+export const getInputChangeValueFunc = (value) => ({
+  type: CHANGE_INPUT_VALUE,
+  value
+})
+```
+这个函数直接返回一个 `action` 对象，他接受一个参数，就是需要修改的 `action` 的值。而组件只需要直接引入该函数，然后将值传进来就好了。
+
+这样的代码相对于上例中的代码，可维护性要提高很多。
