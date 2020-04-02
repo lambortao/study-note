@@ -119,5 +119,19 @@ class AntdTodo extends React.Component {
     this.setState(store.getState());
   }
 }
-
 ```
+
+## 抽离 actionTypes
+从上面的例子我们看到，组件内 `action` 的 `type` 和 `reducers` 中的 `action` 的 `type` 的名字必须要完全吻合，否则 `reducers` 就没有办法知道你需要更新哪一个 `state`。
+
+那这样就会碰到一个问题，因为这里的 `type` 都是使用字符串来定义的，而字符串一旦拼错，在代码中是不会报错的。这样可能会无意识间增加编码成本。
+
+这时候就可以将 `types` 抽离出来作为一个公共的文件来使用。
+
+``` javascript
+// redux/actionTypes.js 
+
+export const CHANGE_INPUT_VALUE = 'change_input_value';
+```
+
+使用一个常量来定义它，并将它分别引入组件和 `reducers` 内部。
