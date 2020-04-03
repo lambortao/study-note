@@ -96,6 +96,10 @@ module.exports = {
               path: 'basis'
             },
             {
+              title: '组件',
+              path: 'component.md'
+            },
+            {
               title: '生命周期',
               path: 'lifecycle'
             }
