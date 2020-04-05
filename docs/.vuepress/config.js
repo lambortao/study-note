@@ -111,8 +111,20 @@ module.exports = {
             {
               title: '基础概念',
               path: 'redux/basis'
+            },
+            {
+              title: '中间件',
+              path: 'redux/middleware'
+            },
+            {
+              title: 'React-redux',
+              path: 'redux/react-redux'
             }
           ]
+        },
+        {
+          title: 'Hook',
+          path: 'hook'
         }
       ],
       '/server/php/': [
