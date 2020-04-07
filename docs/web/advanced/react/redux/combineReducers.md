@@ -18,7 +18,7 @@ export default combineReducers({
 ```
 
 ::: warning 使用数据的时候要小心
-上面的代码里面可以看到我们给 `todoRedux` 这个 `reducer` 取了一个别名，叫 `todo` 那在使用 `todoRedux` 的时候不要忘记在千面加上 `todo`。
+上面的代码里面可以看到我们给 `todoRedux` 这个 `reducer` 取了一个别名叫 `todo` ，那在使用 `todoRedux` 的时候不要忘记在千面加上 `todo`。
 :::
 
 ``` javascript {5,6}
