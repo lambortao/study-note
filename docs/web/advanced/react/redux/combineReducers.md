@@ -22,7 +22,7 @@ export default combineReducers({
 :::
 
 ``` javascript {5,6}
-// 组件中的 mapStateToProps 方法
+// 组件中的 mapStateToProps 方法 ，这是一段测试
 
 const mapStateToProps = (state) => {
   return {
