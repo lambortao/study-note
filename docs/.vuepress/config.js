@@ -119,6 +119,10 @@ module.exports = {
             {
               title: 'React-redux',
               path: 'redux/react-redux'
+            },
+            {
+              title: '拆分 reducer',
+              path: 'redux/combineReducers'
             }
           ]
         },
