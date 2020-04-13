@@ -99,3 +99,15 @@ function MyHooks() {
   return <div>{ count }</div>
 }
 ```
+
+## useRef
+使用 `useRef` 可以获取到 `DOM` 节点。
+
+``` javascript {4,5}
+import React, { useRef } from 'react';
+
+function GetRef() {
+  const divRef = useRef();
+  return <div ref={ divRef }>test content</div>
+}
+```
